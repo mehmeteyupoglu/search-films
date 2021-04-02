@@ -28,11 +28,9 @@ export default {
    */
   name: "AutoComplete",
 
-  data: () => ({
-    items: ["hello world"],
-  }),
+  data: () => ({}),
   computed: {
-    ...mapGetters({ loading: "getLoadingState" }),
+    ...mapGetters({ loading: "getLoadingState", items: "getItems" }),
     title: {
       set(value) {
         this.$store.commit("setTitle", value);
@@ -53,8 +51,13 @@ export default {
   watch: {
     title() {
       // this makes sure that the data is not fetched when the title is an empty string
-      if (this.title !== "") {
+      if (this.title !== "" && !this.fullTitle) {
         this.$store.dispatch("loadMovies");
+      }
+    },
+    fullTitle() {
+      if (this.fullTitle !== "") {
+        this.$store.dispatch("loadSelectedMovies");
       }
     },
   },

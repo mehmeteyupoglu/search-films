@@ -27,6 +27,9 @@ export default new Vuex.Store({
     setMovies(state, payload) {
       state.movies = payload;
     },
+    setItems(state, payload) {
+      state.items = payload;
+    },
   },
   getters: {
     getTitle(state) {
@@ -41,6 +44,9 @@ export default new Vuex.Store({
     getMovies(state) {
       return state.movies;
     },
+    getItems(state) {
+      return state.items;
+    },
   },
   actions: {
     async loadMovies({ commit, state }) {
@@ -49,7 +55,26 @@ export default new Vuex.Store({
 
       try {
         const data = await MovieService.getMovieList(_title);
-        commit("setMovies", data);
+        const movieTitleList = data.data.Search.map((item) => item.Title);
+
+        commit("setItems", movieTitleList);
+      } catch (error) {
+        console.log("error while fetching data");
+      } finally {
+        commit("setLoadingState", false);
+      }
+    },
+
+    async loadSelectedMovies({ commit, state }) {
+      commit("setLoadingState", true);
+      const _title = state.fullTitle;
+
+      try {
+        const data = await MovieService.getMovieList(_title);
+        const selectedMovieList = data.data.Search;
+        console.log(`selectedMovieList`, selectedMovieList);
+
+        commit("setMovies", selectedMovieList);
       } catch (error) {
         console.log("error while fetching data");
       } finally {
