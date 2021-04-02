@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { MovieService } from "../service";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -87,4 +88,5 @@ export default new Vuex.Store({
    * !!! No need for modules as all the state belongs to the same domain
    */
   modules: {},
+  plugins: [createPersistedState()],
 });
