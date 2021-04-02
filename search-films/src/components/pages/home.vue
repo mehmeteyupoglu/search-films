@@ -10,19 +10,36 @@
         <auto-complete></auto-complete>
       </v-col>
     </v-row>
+    <v-row
+      class="d-flex justify-center
+    "
+    >
+      <movie-card
+        v-for="movie in movies"
+        :movie="movie"
+        :key="movie.id"
+      ></movie-card>
+    </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { AutoComplete } from "../atoms";
+import { MovieCard } from "../organisms";
 export default {
   /**
    * Harbors searching movie activity
    * @component
    * @example <home></home>
    */
-  components: { AutoComplete },
+  components: { AutoComplete, MovieCard },
   name: "Home",
   data: () => ({}),
+  computed: {
+    ...mapGetters({
+      movies: "getMovies",
+    }),
+  },
 };
 </script>
