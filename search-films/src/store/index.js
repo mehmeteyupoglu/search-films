@@ -9,6 +9,7 @@ export default new Vuex.Store({
     title: "",
     fullTitle: "",
     loadingState: false,
+    items: [],
     movies: [],
   },
   mutations: {
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     },
     setFullTitle(state, payload) {
       state.fullTitle = payload;
+      state.title = "";
     },
     setLoadingState(state, payload) {
       state.loadingState = payload;

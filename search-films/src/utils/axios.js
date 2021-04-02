@@ -1,14 +1,13 @@
 import axios from "axios";
 
-const apiKey = process.env.API_KEY;
-
+const BASE_URL = process.env.VUE_APP_BASE_URL;
 /**
  * Create an axios instance
  * @function
  * @params {object} baseURL: value
  */
 const axiosInstance = axios.create({
-  baseURL: `http://www.omdbapi.com/?apikey=${apiKey}`,
+  baseURL: BASE_URL,
 });
 
 export default axiosInstance;
