@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex align-center">
     <v-row justify="center">
-      <v-col cols="12" sm="6" md="4" lg="3" xl="3">
+      <v-col cols="12" sm="6" md="4" lg="4" xl="4">
         <v-autocomplete
           v-model="fullTitle"
           :items="items"
