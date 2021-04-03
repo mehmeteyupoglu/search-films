@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { MovieService } from "../service";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     setTitle(state, payload) {
       // set title in vuex
       state.title = payload;
+
+      if (payload === "") {
+        state.items = [];
+      }
     },
     setFullTitle(state, payload) {
       state.fullTitle = payload;
@@ -87,4 +92,5 @@ export default new Vuex.Store({
    * !!! No need for modules as all the state belongs to the same domain
    */
   modules: {},
+  plugins: [createPersistedState()],
 });
