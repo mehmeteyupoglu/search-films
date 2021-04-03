@@ -1,7 +1,7 @@
 import { Request } from "../utils";
 
 const apiKey = process.env.VUE_APP_SECRET_KEY;
-const prefix = `?apikey=${apiKey}&s=`;
+const prefix = `?apikey=${apiKey}&y=2020&s=`;
 
 /**
  * Asynchronously fetch data from the OMBD Api

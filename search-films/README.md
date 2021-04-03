@@ -16,9 +16,13 @@ From the very beginning of the project, a clean architecture, well-decomposed co
 
 The project was created within a couple days. For the detailed timeline of the development phase check below:
 
-| Time Period                |         Work          |
-| -------------------------- | :-------------------: |
-| April 1, 2021 9:00-10.30pm | Initial setup, layout |
+| Time Period                 |                   Work                   |
+| --------------------------- | :--------------------------------------: |
+| April 1, 2021 9:00-10.30pm  |          Initial setup, layout           |
+| April 2, 2021 10:00-12.00am |      Initial design, configuration       |
+| April 2, 2021 1:00-2.00pm   |           Service integration            |
+| April 2, 2021 8:00-10.30pm  | Activate searching films in autocomplete |
+| April 3, 2021 9:30-10.30am  |         Snackbar, documentation          |
 
 ## Project setup
 
