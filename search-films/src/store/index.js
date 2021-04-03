@@ -17,6 +17,10 @@ export default new Vuex.Store({
     setTitle(state, payload) {
       // set title in vuex
       state.title = payload;
+
+      if (payload === "") {
+        state.items = [];
+      }
     },
     setFullTitle(state, payload) {
       state.fullTitle = payload;
