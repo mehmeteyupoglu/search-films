@@ -1,6 +1,6 @@
 import { Request } from "../utils";
 
-const apiKey = process.env.VUE_APP_SECRET_KEY;
+const apiKey = "63a0d577";
 const prefix = `?apikey=${apiKey}&y=2020&s=`;
 
 /**
