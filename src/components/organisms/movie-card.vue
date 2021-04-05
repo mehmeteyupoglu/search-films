@@ -9,7 +9,9 @@
     <v-divider class="mx-4"></v-divider>
 
     <v-card-actions class="d-flex justify-end align-items-end">
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
+      <!-- reserve function does not exist -->
+      <!-- <v-btn color="deep-purple lighten-2" text @click="reserve"> -->
+      <v-btn color="deep-purple lighten-2" text>
         Details
       </v-btn>
     </v-card-actions>
