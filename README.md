@@ -1,6 +1,6 @@
 # Film DB
 
-Film DB is a cool small weekend project . It basically searches for films and retrives data from mock [OMDB Api](http://www.omdbapi.com/). Vue.js and it's ecosystem has been adopted on the client side. For the whole list of packages used in the project, please checkout [package.json](https://github.com/mehmeteyupoglu/search-films/blob/main/package.json).
+Film is a cool small weekend project . It basically searches for films and retrives data from mock [OMDB Api](http://www.omdbapi.com/). Vue.js and it's ecosystem has been adopted on the client side. For the whole list of packages used in the project, please checkout [package.json](https://github.com/mehmeteyupoglu/search-films/blob/main/package.json).
 
 ## Principles, Docs and Methodologies
 
