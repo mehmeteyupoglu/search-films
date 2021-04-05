@@ -19,10 +19,6 @@
         </h3>
       </v-col>
     </v-row>
-    <v-row
-      class="d-flex justify-center
-    "
-    >
     <v-row class="d-flex justify-center">
       <!-- as it has no content, self closing tags are cleaner -->
       <movie-card
@@ -35,11 +31,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { defineComponent, reactive, computed, toRefs, onMounted } from "@vue/composition-api"
 import { AutoComplete } from "../atoms";
 import { MovieCard } from "../organisms";
 import { Snackbar } from "../molecules";
-export default {
+
+export default defineComponent({
   /**
    * Harbors searching movie activity
    * @component
@@ -47,39 +44,39 @@ export default {
    */
   components: { AutoComplete, MovieCard, Snackbar },
   name: "Home",
-  data: () => ({
-    snackbar: false,
-  }),
-  computed: {
-    ...mapGetters({
-      movies: "getMovies",
-    }),
-    snackbarContent() {
-      return {
-        model: this.snackbar,
+  setup(props, ctx) {
+    const localState = reactive({
+      snackbar: false
+    })
+
+    const movies = computed(() => ctx.root.$store.getters.getMovies)
+
+    const snackbarContent = computed(() => ({
+        model: localState.snackbar,
         text: "Don't forget to read",
         path:
           "https://github.com/mehmeteyupoglu/search-films/blob/main/README.md",
         strong: "documentation",
-      };
-    },
-  },
-  methods: {
+    }))
+
     /**
      * Changes the state of local snackbar asyncronously
      * @function
      */
-    snackbarTimeout() {
+    const snackbarTimeout = () => {
       setTimeout(() => {
-        this.snackbar = true;
+        localState.snackbar = true;
       }, 2000);
       setTimeout(() => {
-        this.snackbar = false;
+        localState.snackbar = false;
       }, 7000);
-    },
-  },
-  mounted() {
-    this.snackbarTimeout();
-  },
-};
+    }
+
+    onMounted(() => {
+      snackbarTimeout()
+    })
+
+    return { ...toRefs(localState), movies, snackbarContent }
+  }
+});
 </script>
