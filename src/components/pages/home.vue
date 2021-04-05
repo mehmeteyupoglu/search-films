@@ -8,7 +8,7 @@
         </h3>
       </v-col>
       <v-col cols="12">
-        <auto-complete></auto-complete>
+        <auto-complete />
       </v-col>
     </v-row>
     <!-- if movies is undefined, length does not exist as well -->
