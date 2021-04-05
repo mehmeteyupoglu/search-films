@@ -11,7 +11,8 @@
         <auto-complete></auto-complete>
       </v-col>
     </v-row>
-    <v-row class="text-center align-items-center " v-if="movies.length === 0">
+    <!-- if movies is undefined, length does not exist as well -->
+    <v-row class="text-center align-items-center " v-if="movies && movies.length === 0">
       <v-col class="mt-5">
         <h3 class="button font-weight-bold">
           Nothing to show here...
