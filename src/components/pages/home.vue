@@ -23,11 +23,13 @@
       class="d-flex justify-center
     "
     >
+    <v-row class="d-flex justify-center">
+      <!-- as it has no content, self closing tags are cleaner -->
       <movie-card
         v-for="movie in movies"
         :movie="movie"
         :key="movie.id"
-      ></movie-card>
+      />
     </v-row>
   </v-container>
 </template>
